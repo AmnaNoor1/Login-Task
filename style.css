@@ -11,11 +11,20 @@ body {
 
 #form {
   background-color: white;
-  width: 28%;
+  width: 80%;
   border-radius: 2px;
-  margin: 50px auto;
+  margin: 30px auto;
   padding: 30px;
   box-shadow: 2px 2px 5px rgb(215, 218, 219);
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-field {
+  width: 100%;
 }
 
 h1 {
@@ -25,10 +34,18 @@ h1 {
 
 input {
   border-radius: 2px;
-  width: 88%;
+  width: 45%;
   border: 2px solid rgb(215, 218, 219);
   padding: 2px;
-  margin: 2px 5px;
+  margin: 5px 10px;
+}
+
+#gender input {
+  width: 10px;
+}
+
+.gender {
+  display: inline;
 }
 
 #btn {

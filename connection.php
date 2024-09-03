@@ -22,7 +22,10 @@ $sql = "CREATE TABLE IF NOT EXISTS Users (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
     UserName VARCHAR(100),
     Email VARCHAR(255),
-    Password VARCHAR(255)
+    Password VARCHAR(255),
+    Place VARCHAR(255),
+    Gender ENUM('Male', 'Female', 'Other'),
+    ProfilePicture VARCHAR(255)
 )";
 if ($conn->query($sql) === TRUE) {
     echo " ";

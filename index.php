@@ -28,15 +28,20 @@ include("connection.php");
   <body>
     <div id="form">
       <h1>Signup Form</h1>
-      <form name="form" action="signup.php" method="post">
+      <form class="form-fields" name="form" action="signup.php" method="post" enctype="multipart/form-data">
+       <div class="form-field">
         <i class="fa-solid fa-user"></i>
         <input
           type="text"
           id="username"
           name="username"
           placeholder="enter username"
+          pattern="^[a-zA-Z][a-zA-Z0-9_]{5,29}$"
           required
-        /><br /><br />
+        />
+       </div>
+     
+       <div class="form-field>
         <i class="fa-solid fa-envelope"></i>
         <input
           type="email"
@@ -44,7 +49,10 @@ include("connection.php");
           name="email"
           placeholder="enter email"
           required
-        /><br /><br />
+        />
+        </div>
+
+        <div class="form-field>
         <i class="fa-solid fa-lock"></i>
         <input
           type="password"
@@ -52,7 +60,10 @@ include("connection.php");
           name="password"
           placeholder="enter password"
           required
-        /><br /><br />
+        />
+        </div>
+
+        
         <i class="fa-solid fa-lock"></i>
         <input
           type="password"
@@ -61,17 +72,47 @@ include("connection.php");
           placeholder="re-enter password"
           required
         /><br /><br />
+
+        <div id="gender">
+          <label>Gender:</label>
+          <input type="radio" id="male" name="gender" value="Male" />
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="Female" />
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="Other" />
+          <label for="other">Other</label>
+        </div>
+
+        <label>Where did you find us?</label>
+        <select name="place">
+          <option>Social Media</option>
+          <option>News Paper</option>
+          <option>Google</option>
+        </select>
+
+        <label>Upload a profile picture: </label><br />
+        <input type="file" id="image" name="image" /><br /><br />
+        <p id="fileName"></p>
+        
         <input
           type="submit"
           id="btn"
           value="SignUp"
           name="submit"
         /><br /><br />
+
         <p>Already have an account? Click to <a href="login.html">login</a></p>
       </form>
     </div>
 
     <script>
+      document.getElementById('image').addEventListener('change', function() {
+            const fileInput = document.getElementById('image');
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : "No file selected";
+            document.getElementById('fileName').innerText = fileName;
+            console.log(fileInput.files);
+        });
+
       document.forms["form"].onsubmit = function () {
         var password = document.getElementById("password").value;
         if (password.length < 8) {
