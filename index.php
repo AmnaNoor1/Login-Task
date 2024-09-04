@@ -36,12 +36,11 @@ include("connection.php");
           id="username"
           name="username"
           placeholder="enter username"
-          pattern="^[a-zA-Z][a-zA-Z0-9_]{5,29}$"
           required
         />
        </div>
      
-       <div class="form-field>
+       <div class="form-field">
         <i class="fa-solid fa-envelope"></i>
         <input
           type="email"
@@ -52,52 +51,58 @@ include("connection.php");
         />
         </div>
 
-        <div class="form-field>
-        <i class="fa-solid fa-lock"></i>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="enter password"
-          required
-        />
+        <div class="form-field">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="enter password"
+            required
+          />
         </div>
 
-        
-        <i class="fa-solid fa-lock"></i>
-        <input
-          type="password"
-          id="re-pass"
-          name="re-pass"
-          placeholder="re-enter password"
-          required
-        /><br /><br />
-
-        <div id="gender">
-          <label>Gender:</label>
-          <input type="radio" id="male" name="gender" value="Male" />
-          <label for="male">Male</label>
-          <input type="radio" id="female" name="gender" value="Female" />
-          <label for="female">Female</label>
-          <input type="radio" id="other" name="gender" value="Other" />
-          <label for="other">Other</label>
+        <div class="form-field">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            id="re-pass"
+            name="re-pass"
+            placeholder="re-enter password"
+            required
+          />
         </div>
 
-        <label>Where did you find us?</label>
-        <select name="place">
-          <option>Social Media</option>
-          <option>News Paper</option>
-          <option>Google</option>
-        </select>
+        <div class="form-field">
+          <div id="gender">
+            <label class="label">Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" />
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other" />
+            <label for="other">Other</label>
+          </div>
+        </div>
 
-        <label>Upload a profile picture: </label><br />
-        <input type="file" id="image" name="image" /><br /><br />
-        <p id="fileName"></p>
+        <div class="form-field">
+          <label class="label">Where did you find us?</label>
+          <select name="place">
+            <option>Social Media</option>
+            <option>News Paper</option>
+            <option>Google</option>
+          </select>
+        </div>
+
+        <div class="form-field file-field">
+          <label class="label">Upload a profile picture: </label>
+          <input type="file" id="image" name="image" /> <br/> <br/>
+        </div>
         
         <input
           type="submit"
           id="btn"
-          value="SignUp"
+          value="Signup"
           name="submit"
         /><br /><br />
 
@@ -106,13 +111,6 @@ include("connection.php");
     </div>
 
     <script>
-      document.getElementById('image').addEventListener('change', function() {
-            const fileInput = document.getElementById('image');
-            const fileName = fileInput.files[0] ? fileInput.files[0].name : "No file selected";
-            document.getElementById('fileName').innerText = fileName;
-            console.log(fileInput.files);
-        });
-
       document.forms["form"].onsubmit = function () {
         var password = document.getElementById("password").value;
         if (password.length < 8) {

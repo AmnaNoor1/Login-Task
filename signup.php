@@ -13,9 +13,9 @@ if (isset($_POST['submit'])) {
     $folder = "Images/".$image; 
     
     if (move_uploaded_file($tempname, $folder)) {
-        echo "<h2>File uploaded successfully</h2>";
+        echo "";
     } else {
-        echo "<h2>File not uploaded successfully</h2>";
+        echo "File not uploaded";
     }
     
     $sql = "SELECT * FROM users WHERE UserName='$username'";
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($conn, $sql);
             
             if ($result) {
-                // header("Location: home.html");
+                header("Location: home.html");
             } else {
                 echo "Error: " . mysqli_error($conn);
             }

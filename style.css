@@ -7,13 +7,15 @@ body {
 
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #form {
   background-color: white;
   width: 80%;
   border-radius: 2px;
-  margin: 30px auto;
   padding: 30px;
   box-shadow: 2px 2px 5px rgb(215, 218, 219);
 }
@@ -21,10 +23,26 @@ body {
 .form-fields {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .form-field {
+  display: inline;
+  width: 50%;
+  margin: 6px 0px;
+}
+
+.file-field {
   width: 100%;
+}
+
+#gender {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin: 0;
 }
 
 h1 {
@@ -32,20 +50,26 @@ h1 {
   margin-bottom: 25px;
 }
 
-input {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   border-radius: 2px;
-  width: 45%;
+  width: 80%;
   border: 2px solid rgb(215, 218, 219);
-  padding: 2px;
-  margin: 5px 10px;
+  padding: 5px;
+  margin: 10px;
 }
 
-#gender input {
-  width: 10px;
+input[type="radio"] {
+  margin: 0 6px;
 }
 
-.gender {
-  display: inline;
+input[type="file"] {
+  margin-left: 10px;
+}
+
+select {
+  margin-left: 10px;
 }
 
 #btn {
@@ -58,4 +82,23 @@ input {
   width: 100%;
   padding: 5px;
   color: white;
+}
+
+@media (max-width: 1024px) {
+  .form-field {
+    width: 100%;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 90%;
+  }
+}
+
+@media (max-width: 569px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 70%;
+  }
 }
