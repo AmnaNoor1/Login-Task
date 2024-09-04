@@ -96,7 +96,7 @@ include("connection.php");
 
         <div class="form-field file-field">
           <label class="label">Upload a profile picture: </label>
-          <input type="file" id="image" name="image" /> <br/> <br/>
+          <input type="file" id="image" name="image"/> <br/> <br/>
         </div>
         
         <input
@@ -112,11 +112,31 @@ include("connection.php");
 
     <script>
       document.forms["form"].onsubmit = function () {
+        //password
         var password = document.getElementById("password").value;
         if (password.length < 8) {
           alert("Password must be at least 8 characters long.");
           return false;
         }
+
+        //file
+        var imageInput = document.getElementById("image");
+        var filePath = imageInput.value;
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        if (!allowedExtensions.exec(filePath)) {
+          alert("Please upload a valid image file. Only JPG, JPEG, PNG, and GIF formats are allowed.");
+          imageInput.value = '';
+          return false;
+        }
+
+        //username
+        var username = document.getElementById("username").value;
+        var usernamePattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
+        if (!usernamePattern.test(username)) {
+          alert("Username must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character.");
+          return false;
+        }
+    
         return true;
       };
     </script>
