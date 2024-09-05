@@ -154,7 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
 <script>
 $(document).ready(function(){
     $('.open-modal').on('click', function(){
-        // Get data from the button clicked
         var userId = $(this).data('id');
         var username = $(this).data('username');
         var email = $(this).data('email');
@@ -162,7 +161,6 @@ $(document).ready(function(){
         var place = $(this).data('place');
         var picture = $(this).data('picture');
 
-        // Update the modal fields with the data
         $('#userId').val(userId);
         $('#modalUsername').val(username);
         $('#modalEmail').val(email);

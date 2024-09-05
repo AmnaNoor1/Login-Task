@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // AJAX for updating user
+  //updating user
   $("#updateForm").on("submit", function (e) {
     e.preventDefault();
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
   });
 
-  // AJAX for deleting user
+  //deleting user
   $('button[name="delete"]').on("click", function (e) {
     e.preventDefault();
 
