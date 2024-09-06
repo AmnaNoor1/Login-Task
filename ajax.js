@@ -1,4 +1,26 @@
 $(document).ready(function () {
+  //adding new user
+  $("#addForm").on("submit", function (e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+    console.log(formData);
+
+    $.ajax({
+      url: "add.php",
+      type: "POST",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        alert("New User Added");
+      },
+      error: function () {
+        alert("An error occurred while adding user.");
+      },
+    });
+  });
+
   //updating user
   $("#updateForm").on("submit", function (e) {
     e.preventDefault();

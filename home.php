@@ -37,11 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <title>Home</title>
 </head>
 <body>
 
+<button class="btn btn-primary open-modal mt-5 ml-5" data-toggle="modal" data-target="#addModal"> Add New User </button>
 <div class="container mt-5">
     <?php if (count($allUsers) > 0): ?>
         <table class="table table-bordered">
@@ -141,6 +142,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
                         </div>
 
                         <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Add Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addForm" method="post" action="add.php" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="modalUsername" name="username" value="" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="modalEmail" name="email" value="" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="modalPassword" name="password" value="" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rpassword">Re-enter Password</label>
+                            <input type="password" class="form-control" id="modalRPassword" name="rpassword" value="" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label><br>
+                            <input type="radio" id="modalMale" name="gender" value="Male" /> Male
+                            <input type="radio" id="modalFemale" name="gender" value="Female" /> Female
+                            <input type="radio" id="modalOther" name="gender" value="Other" /> Other
+                        </div>
+
+                        <div class="form-group">
+                            <label for="place">Where did you find us?</label>
+                            <select class="form-control" id="modalPlace" name="place">
+                                <option value="Social Media">Social Media</option>
+                                <option value="News Paper">News Paper</option>
+                                <option value="Google">Google</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Profile Picture</label>
+                            <input type="file" class="form-control-file" id="modalImage" name="image" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </form>
                 </div>
             </div>
